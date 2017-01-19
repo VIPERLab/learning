@@ -368,7 +368,7 @@ Visualize用于展示日志的统计图表，如使用timeline panel把当前，
 
 ![Dashboard](https://github.com/cantoo/learning/raw/master/elasticsearch/dashboard.png)
 
-可以在Dashboard的搜索框中输入搜索条件，点击搜索后Dashboard中所有图表的数据都切换成指定搜索条件的。如我们搜索`	`即可得到`/api/v1/users`接口的访问量统计和耗时统计。
+可以在Dashboard的搜索框中输入搜索条件，点击搜索后Dashboard中所有图表的数据都切换成指定搜索条件的。如搜索`path:/\/api\/v1\/users.*/`即可得到`/api/v1/users`接口的访问量统计和耗时统计。
 
 # 告警脚本
 告警脚本使用elasticsearch的Query DSL从elasticsearch查询异常数据，然后通知相关责任人。
