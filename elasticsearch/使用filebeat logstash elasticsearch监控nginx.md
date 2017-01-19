@@ -348,7 +348,7 @@ Visualize用于展示日志的统计图表，如使用timeline panel把当前，
 
 ![Dashboard](https://github.com/cantoo/learning/raw/master/elasticsearch/dashboard.png)
 
-可以在Dashboard的搜索框中输入，搜索条件，点击搜索后Dashboard中所有图表的数据都切换成指定搜索条件的。如我们搜索`	`即可得到`/api/v1/users`接口的访问量统计和耗时统计。
+可以在Dashboard的搜索框中输入搜索条件，点击搜索后Dashboard中所有图表的数据都切换成指定搜索条件的。如我们搜索`	`即可得到`/api/v1/users`接口的访问量统计和耗时统计。
 
 ![Dashboard Users](https://github.com/cantoo/learning/raw/master/elasticsearch/dashboard_users.png)
 
