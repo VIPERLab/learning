@@ -1,7 +1,26 @@
-[TOC]
+# 目录
+* [前言](#前言)
+* [总体结构](#总体结构)
+* [filebeat](#filebeat)
+	* [filebeat.yml](#filebeat.yml)
+	* [filebeat启动方式](#filebeat启动方式)
+* [logstash](#logstash)
+	* [logstash.yml](#logstash.yml)
+	* [logstash.conf](#logstash.conf)
+	* [logstash启动方式](#logstash启动方式)
+* [elasticsearch](#elasticsearch)
+* [kibana](#kibana)
+	* [kibana.yml](#kibana.yml)
+	* [kibana启动方式](#kibana启动方式)
+	* [kibana页面使用](#kibana页面使用)
+		* [Configure an index pattern](#configure-an-index-pattern)
+		* [Discover](#discover)
+		* [Visualize](#visualize)
+		* [Dashboard](#dashboard)
+* [告警脚本](#告警脚本)
 
 # 前言
-春哥开源的[OpenResty](http://openresty.org/cn/)使得nginx不仅用于代理，还可以快速开发业务server。网上大多数对nginx进行系统或业务层面的监控都是付费的。Elastic Stack是目前流行的开源的日志收集组件，本文探索了使用Elastic Stack搭建nginx的access log日志平台和基于日志实现业务层面的监控。下面是几张效果图：
+春哥开源的[OpenResty](http://openresty.org/cn/)使得nginx不仅用于代理，还可以快速开发业务server。网上大多数对nginx进行系统或业务层面的监控都是付费的。Elastic Stack是目前流行的开源的日志收集组件，本文探索了使用Elastic Stack搭建nginx的access log日志平台和基于日志实现业务层面的监控。下面几张日志平台和告警信息的效果图：
 
 * 访问量统计
 
@@ -316,7 +335,7 @@ cd /your/root/to/kibana
 nohup bin/kibana & 
 ```
 
-## kibana web页面使用
+## kibana页面使用
 
 ### Configure an index pattern
 首次打开kibana，需要配置一个索引的结构。在`Management->Index Patterns`选择`Time-field name`为`@timestamp`后，点击create即可。可以看到kibana已经自动拉取了logstash output配置中模板的字段列表。
@@ -349,8 +368,6 @@ Visualize用于展示日志的统计图表，如使用timeline panel把当前，
 ![Dashboard](https://github.com/cantoo/learning/raw/master/elasticsearch/dashboard.png)
 
 可以在Dashboard的搜索框中输入搜索条件，点击搜索后Dashboard中所有图表的数据都切换成指定搜索条件的。如我们搜索`	`即可得到`/api/v1/users`接口的访问量统计和耗时统计。
-
-![Dashboard Users](https://github.com/cantoo/learning/raw/master/elasticsearch/dashboard_users.png)
 
 # 告警脚本
 告警脚本使用elasticsearch的Query DSL从elasticsearch查询异常数据，然后通知相关责任人。
