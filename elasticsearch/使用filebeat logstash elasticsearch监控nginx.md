@@ -125,6 +125,7 @@ pipeline.output.workers: 4
 ```
 
 [官方logstash运行配置详情说明文档](https://www.elastic.co/guide/en/logstash/current/logstash-settings-file.html)
+
 [官方logstash性能调优文档](https://www.elastic.co/guide/en/logstash/current/performance-tuning.html)
 
 ## logstash.conf
